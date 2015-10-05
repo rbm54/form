@@ -1,0 +1,213 @@
+  <!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Daily nutrition</title>
+
+<style>
+
+body {
+
+background-color: green;
+
+font-family: Helvetica;
+
+}
+
+#main {
+
+width: 65%;
+
+border: 1px gray solid;
+
+margin: auto;
+
+padding: 10px;
+
+background-color: pink;
+
+border-radius: 10px;
+
+}
+
+#header {
+
+margin-top: 0;
+
+border: 2px solid black;
+
+padding: 5px;
+
+height: 250px;
+
+background-image: url('fandv.jpg');
+
+}
+
+h1{
+
+color: white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="main">
+
+<div id="header"><h1>Answer the following about your daily nutrition..</h1></div>
+
+<table>
+
+<form  id="form1" action=" "/>
+
+<tr><td>
+
+<p>How many servings of grain do you eat a day?</p></td><td>
+
+<input type="radio" name="age" id="7to8" value="1" />7-8 </td><td>
+
+<input type="radio" name="age" id="5to6" value="2" />5-6 </td><td>
+
+<input type="radio" name="age" id="lessthan5" value="3" />lessthan 5
+
+</td></tr>
+
+<tr><td>
+
+<p>How many servings of fruits and veggies do you eat a day?</p></td><td>
+
+<input type="radio" name="activity" id="7to8.2" value="1" />7-8</td><td>
+
+<input type="radio" name="activity" id="5to6.2" value="2" />5-6</td><td>
+
+<input type="radio"  name="activity"id="lessthan5.2" value="3" />lessthan 5
+
+</td></tr>
+
+<tr><td>
+
+<p>How many servings of protein do you eat a day?</p></td><td>
+
+<input type="radio" name="music" id="4to5" value="1" />4-5</td><td>
+
+<input type="radio" name="music" id="2to3" value="2" />2-3</td><td>
+
+<input type="radio" name="music" id="lessthan2" value="3" />lessthan 2</td>
+
+</tr>
+
+<tr><td>
+
+<br />
+
+<input type="submit" value="Submit">
+
+</td></tr>
+
+</form>
+
+</table>
+
+<p id="answer"></p>
+
+<p id="answer2"></p>
+
+</div>
+
+<script>
+
+   grainsvar = ['7to8', '5to6', 'lessthan5'];
+
+   fandvvar = ['7to8.2', '5to6.2', 'lessthan5.2'];
+
+   proteinvar = ['4to5', '2to3', 'lessthan2'];
+
+    
+
+	   document.getElementById("form1").onsubmit=function() {
+
+	   for(i=0; i<grainsvar.length; i++) {
+
+	   if (document.getElementById(grainsvar[i]).checked) {
+
+	   grains = document.getElementById(grainsvar[i]).value; 
+
+	   }
+
+	   }//end for
+
+	   
+
+	   for(i=0; i<fandvvar.length; i++) {
+
+	   if (document.getElementById(fandvvar[i]).checked) {
+
+	   fandv = document.getElementById(fandvvar[i]).value; 
+
+	   }
+
+	   }//end for
+
+	   
+
+	   for(i=0; i<proteinvar.length; i++) {
+
+	   if (document.getElementById(proteinvar[i]).checked) {
+
+	   protein = document.getElementById(proteinvar[i]).value; 
+
+	   }
+
+	   }//end for
+
+	   
+
+	   total = parseInt(grains) + parseInt(fandv) + parseInt(protein);
+
+	   document.getElementById("answer").innerHTML = total;
+
+	   
+
+	   if(total < 4) {
+
+document.getElementById("answer2").innerHTML = "You eat all your servings!";
+
+}
+
+   if(total >=4 && total < 7) {
+
+document.getElementById("answer2").innerHTML = "You are close to eating all your servings.";
+
+}
+
+	
+
+	if(total >=7) {
+
+document.getElementById("answer2").innerHTML = "You have some room for improvement.";
+
+}   
+
+		   
+
+	   return false; // required to not refresh the page; just leave this here
+
+	   }// end the submit function
+
+	
+
+</script>
+
+
+
+
+
+</body>
+
+</html>
